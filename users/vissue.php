@@ -1,5 +1,10 @@
 <?php
 include('connect.php');
+session_start();
+if(!$_SESSION['isLogged']){
+    header("location:login.php");
+    die();
+}
 if(isset($_GET['id'])){
 	$id=($_GET['id']);
 	$query="SELECT * FROM grid WHERE id='$id'";
@@ -38,12 +43,6 @@ if(isset($_GET['id'])){
     <link href="css/style-responsive.css" rel="stylesheet">
     <script src="lib/chart-master/Chart.js"></script>
 
-    <!-- =======================================================
-      Template Name: Dashio
-      Template URL: https://templatemag.com/dashio-bootstrap-admin-template/
-      Author: TemplateMag.com
-      License: https://templatemag.com/license/
-    ======================================================= -->
   </head>
 
   <body>
@@ -70,11 +69,7 @@ if(isset($_GET['id'])){
           </ul>
         </div>
       </header>
-      <!--header end-->
-      <!-- **********************************************************************************************************************************************************
-          MAIN SIDEBAR MENU
-          *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
+
       <aside>
         <div id="sidebar" class="nav-collapse ">
           <!-- sidebar menu start-->

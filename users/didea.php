@@ -1,8 +1,12 @@
 <?php
 include('connect.php');
 include('login.php');
-if (isset($_SESSION['signedin']) && $_SESSION['signedin'] === TRUE) {
-    //allow
+
+if(!$_SESSION['isLogged']){
+    header("location:login.php");
+    die();
+}
+
     ?>
   <!DOCTYPE html>
   <html lang="en">
@@ -73,13 +77,13 @@ if (isset($_SESSION['signedin']) && $_SESSION['signedin'] === TRUE) {
           <ul class="sidebar-menu" id="nav-accordion">
             <h1 class="centered"><strong><i class="fa fa-home"></i></strong></h1>            
             <li class="sub-menu">
-              <a class="active" href="index.php">
+              <a  href="index.php">
                 <i class="fa fa-envelope"></i>
                 <span>Issues</span>
                 </a>
             </li>
             <li class="sub-menu">
-              <a href="ideas.php">
+              <a class="active"href="ideas.php">
                 <i class="fa fa-dashboard"></i>
                 <span>Ideas</span>
                 </a>
@@ -187,8 +191,3 @@ if (isset($_SESSION['signedin']) && $_SESSION['signedin'] === TRUE) {
   </body>
 
   </html>
-<?php
-} else {
-    header('Location: ../index.html');
-}
-?>

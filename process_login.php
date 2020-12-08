@@ -18,6 +18,7 @@ if(isset($_POST['submit'])){
 
 			if($row["password"] == $password){
 				$_SESSION['username'] = $row["username"];
+				$_SESSION['isLogged']=true;
 				header("Location: admin/index.php");
 			}else{
 				header("Location: index.php?wrongpwd");

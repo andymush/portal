@@ -1,5 +1,10 @@
 <?php
 include('connect.php');
+session_start();
+if(!$_SESSION['isLogged']){
+    header("location:login.php");
+    die();
+}
 if(isset($_GET['id'])){
 	$id=($_GET['id']);
 	$query="SELECT * FROM idea WHERE id='$id'";
@@ -133,7 +138,7 @@ if(isset($_GET['id'])){
                   <div class="form-group">
                     <div class="col-lg-offset-1 col-lg-10">
                       <center>
-                        <input type="submit" value="submit" name="submit" class="btn btn-primary" style="width: 30%;"></a><a href="index.php" class="btn btn-success" style="width: 30%">Back</a>
+                        <input type="submit" value="submit" name="submit" class="btn btn-primary" style="width: 30%;"></a><a href="ideas.php" class="btn btn-success" style="width: 30%">Back</a>
                       </center>                    
                         
                     </div>

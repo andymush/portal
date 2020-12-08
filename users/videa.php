@@ -1,15 +1,20 @@
- <?php
-    include('connect.php');
-    if(isset($_GET['id'])){
-      $id=($_GET['id']);
-      $query="SELECT * FROM idea WHERE id='$id'";
-      $select_query=mysqli_query($conn,$query);
-      while($row=mysqli_fetch_array($select_query)){
-            $myname=$row['myname'];
-            $idea=$row['idea'];
-            $uid=$row['id'];
-      }
-    }
+<?php
+include('connect.php');
+session_start();
+if(!$_SESSION['isLogged']){
+header("location:login.php");
+die();
+}
+if(isset($_GET['id'])){
+  $id=($_GET['id']);
+  $query="SELECT * FROM idea WHERE id='$id'";
+  $select_query=mysqli_query($conn,$query);
+  while($row=mysqli_fetch_array($select_query)){
+        $myname=$row['myname'];
+        $idea=$row['idea'];
+        $uid=$row['id'];
+  }
+}
 ?> 
   <!DOCTYPE html>
   <html lang="en">

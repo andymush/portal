@@ -1,5 +1,10 @@
 <?php
 include('connect.php');
+session_start();
+if(!$_SESSION['isLogged']){
+    header("location:login.php");
+    die();
+}
 if(isset($_GET['id'])){
 	$id=($_GET['id']);
 	$query="SELECT * FROM idea WHERE id='$id'";

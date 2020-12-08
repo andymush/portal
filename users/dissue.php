@@ -1,11 +1,14 @@
 <?php
 include('connect.php');
 include('login.php');
-if (isset($_SESSION['signedin']) && $_SESSION['signedin'] === TRUE) {
-    //allow
-    ?>
-  <!DOCTYPE html>
-  <html lang="en">
+if(!$_SESSION['isLogged']){
+    header("location:login.php");
+    die();
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
 
   <head>
     <meta charset="utf-8">
@@ -185,10 +188,5 @@ if (isset($_SESSION['signedin']) && $_SESSION['signedin'] === TRUE) {
     <!--script for this page-->
 
   </body>
-
+              
   </html>
-<?php
-} else {
-    header('Location: ../index.html');
-}
-?>

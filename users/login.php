@@ -14,6 +14,7 @@ if(isset($_POST['submit'])){
 			$_SESSION['id'] = $rows2['id'];
 			$_SESSION['uname']=$rows2['uname'];
 			$_SESSION['password']=$rows2['password'];
+			$_SESSION['isLogged']=true;
     		?>
     		
             <script>alert("User Login Successful!");

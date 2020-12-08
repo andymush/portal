@@ -1,5 +1,10 @@
 <?php
 include('connect.php');
+session_start();
+if(!$_SESSION['isLogged']){
+    header("location:login.php");
+    die();
+}
 $id=$_GET['id'];
 $query=("select * from idea where id='$id'");
 $select_query=mysqli_query($conn,$query);
@@ -9,6 +14,7 @@ while($row=mysqli_fetch_array($select_query)){
     $idea=$row['idea'];
 }
 ?>
+
 <html>
 	<head>
         <title>Update Idea</title>

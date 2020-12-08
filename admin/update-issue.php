@@ -1,5 +1,10 @@
 <?php
 include('connect.php');
+session_start();
+if(!$_SESSION['isLogged']){
+    header("location:login.php");
+    die();
+}
 $id=$_GET['id'];
 $query=("select * from grid where id='$id'");
 $select_query=mysqli_query($conn,$query);

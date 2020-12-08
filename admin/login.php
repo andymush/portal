@@ -30,10 +30,11 @@
                     </div>
                 </div>
                 <div class="form-actions">
-                    
                     <span class="center"><input type="submit" name="submit" style="width:100%;" class="btn btn-large btn-success" value="Login" /></span>
                 </div>
             </form>
+            <a href="../index.php"><button class="btn btn-large btn-primary" style="width: 100%;">Home Page</button></a>
+            
             <form id="recoverform" action="#" class="form-vertical">
 				<p class="normal_text">Enter your e-mail address below and we will send you instructions how to recover a password.</p>
 				
@@ -45,7 +46,7 @@
                
                 <div class="form-actions">
                     <span class="pull-left"><a href="#" class="flip-link btn btn-success" id="to-login">&laquo; Back to login</a></span>
-                    <span class="pull-right"><a class="btn btn-info"/>Reecover</a></span>
+                    <span class="pull-right"><a class="btn btn-info">Reecover</a></span>
                 </div>
             </form>
         </div>
